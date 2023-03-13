@@ -35,8 +35,11 @@ SELECT * FROM country_manufactures;  //просмотр таблицы country_m
 
 CREATE TABLE manufactures (
     id_manufactures int PRIMARY KEY NOT NULL,  //числовой тип данных
+
     name_manufactures varchar(32) NOT NULL,    //Символьный тип данных
+
     address varchar(50) NOT NULL,              //в адресе используются и буквы и цифры
+
     id_country int NOT NULL
 );
 
@@ -44,9 +47,13 @@ CREATE TABLE manufactures (
 
 
 CREATE TABLE buyers (
+
     id_buyers int PRIMARY KEY NOT NULL,
+
     name_buyers varchar(32) NOT NULL,
+
     telephone numeric(11),                     //числовой тип данных без цифр после точки, поэтому указано общее количество цифр
+
     email varchar(32)                          //символьный тип данных для электронной почты
 );
 
@@ -54,12 +61,19 @@ CREATE TABLE buyers (
 
 
 CREATE TABLE garland (
+
     id_garland int PRIMARY KEY NOT NULL,
+
     name_garland varchar(32) NOT NULL,
+
     article int UNIQUE,                        //артикул должен быть уникальным
+
     id_manufactures int NOT NULL,
+
     price decimal(9,2),                        //для цены числовой тип с фиксированной точкой
+
     stock int,
+
     discount float(4,2)                        //максимальная скидка может быть 99,99%
 );
 
@@ -78,9 +92,13 @@ SHOW tables;  //просмотр таблиц БД
 CREATE TABLE documents (doc JSON);
 
 INSERT INTO documents
+
 (doc)
+
 VALUES
+
 ('{"title": "Terms of use", "amount": 1000200, "clients": [2, 3]}'),
+
 ('{"title": "Privacy policy and personal data processing", "amount": 30000, "clients": [2, 4]}');
 
 
